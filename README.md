@@ -28,6 +28,11 @@ kubectl create namespace argocd
 kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
 ```
 
+Check all the pod is up:
+```sh
+kubectl get po -n argocd -w
+```
+
 Create a port-forward to the ArgoCD server:  
 
 ```sh
@@ -41,3 +46,9 @@ kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.pas
 ``` 
 
 That's it! You can now start using ArgoCD on Minikube.
+
+## Trubeshoot
+check if exists service:
+```sh
+minikube service myapp-service --url 
+```

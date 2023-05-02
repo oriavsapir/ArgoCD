@@ -15,12 +15,6 @@ Start Minikube
 minikube start
 ```
 
-Set the kubectl context to Minikube:  
-
-```sh 
-kubectl config use-context minikube
-```
-
 Deploy ArgoCD in the argocd namespace:  
 
 ```sh
@@ -47,8 +41,11 @@ kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.pas
 
 That's it! You can now start using ArgoCD on Minikube.
 
+(Starting the deployment using `kubectl apply -f application.yaml`
+
 ## Trubeshoot
 check if exists service:
 ```sh
 minikube service myapp-service --url 
 ```
+if svc no up, check if the port 30002 is avilable. 
